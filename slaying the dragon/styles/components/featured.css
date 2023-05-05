@@ -1,0 +1,210 @@
+.featured__subtitle{
+  font-size: var(--size-sm);
+  color: var(--clr-indigo);
+  text-transform : capitalize;
+  font-weight: 400;
+}
+
+.featured__wrapper{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featured__title{
+  font-size: var(--size-2xl);
+  color: var(--clr-light);
+  text-transform: uppercase;
+}
+
+.featured__link{
+  /* display: inline-block;     anchor element size will not change because anchor element by default have a display of inline OR we can do this by a wrapper class  */
+  width : var(--size-2xl);
+  height : var(--size-2xl);
+}
+
+.featured__description{
+  max-width: 60ch;
+  color: var(--clr-slate600);
+  font-size: var(--size-sm);
+  margin: 1rem 0;
+}
+
+.featured__label{
+  font-size: var(--size-base);
+  text-transform: capitalize;
+  margin-bottom:  0.25rem;
+}
+
+.featured__tech-stack{
+  padding: 0;
+  list-style: none;
+}
+
+.featured__info{
+  font-size: var(--size-sm);
+  color: var(--clr-slate600);
+  text-transform: capitalize;
+}
+
+ /* Additional featured_img class */
+
+/* .featured__img{
+  width: 100%;
+  height: 100%;
+} */
+
+.featured__img-container{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit , minmax(300px, 1fr));  /* to arrange images 2-dimensionally on large screens */
+  grid-gap: 1rem;
+}
+
+.featured__img-wrapper{   /* our absolute position of background color was relative to the whole document so we need to make it relative to it's closest element which is the previous div but in this case it is the featured__img-wrapper class itself because we are using ::after */
+  position: relative;
+}
+.featured__img-wrapper::after{
+  content: '';
+  background-color: rgba(70, 79, 229, 0.4);
+  width: 100%;
+  height: 100%;
+  position: absolute; /* because i need my background color to be removed from the document so it can sit on top of my image*/
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: background-color 0.3s;
+}
+
+.featured__img-wrapper:hover::after{
+  background-color: rgba(70 , 79, 229, 0.1);
+}
+
+/* Media Queries */
+
+/* xs */
+@media (min-width:475px){
+  .featured__title{
+    font-size: var(--size-3xl);
+ }
+
+ .featured__subtitle{
+   font-size: var(--size-base);
+}
+
+.featured__link{
+  width : var(--size-3xl);
+  height : var(--size-3xl);
+}
+
+.featured__description{
+  font-size: var(--size-base);
+  margin: 1.5rem 0;
+}
+
+.featured__label{
+  font-size: var(--size-lg);
+}
+
+.featured__info{
+  font-size: var(--size-base);
+}
+
+.featured__img-container{
+  margin-top: 1.5rem;
+  grid-gap: 1.5rem;
+}
+
+}
+
+/* sm */
+@media(min-width:640px){
+  .featured__img-container{
+    grid-template-columns: repeat(auto-fit , minmax(500px, 1fr));  /* to arrange images 2-dimensionally on large screens */
+  }
+
+}
+
+/* md */
+/* @media(min-width:768px){
+
+} */
+
+/* lg */
+@media(min-width:1024px){
+  .featured__title{
+    font-size: var(--size-4xl);
+ }
+
+ .featured__subtitle{
+   font-size: var(--size-lg);
+
+}
+
+.featured__link{
+  width : var(--size-4xl);
+  height : var(--size-4xl);
+}
+
+.featured__description{
+  font-size: var(--size-lg);
+}
+
+.featured__label{
+  font-size: var(--size-xl);
+}
+
+.featured__info{
+  font-size: var(--size-lg);
+}
+}
+
+/* xl */
+@media(min-width:1280px){
+  .featured__title{
+    font-size: var(--size-5xl);
+ }
+
+ .featured__subtitle{
+   font-size: var(--size-xl);
+}
+
+.featured__link{
+  width : var(--size-5xl);
+  height : var(--size-5xl);
+}
+
+.featured__description{
+  font-size: var(--size-xl);
+  margin: 2rem 0;
+}
+
+.featured__info-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.featured__info-container div{
+  flex: 1;   /* flex=1 so that all the div have equal width */
+  min-width: 250px; /* so that when screen size is smaller the div can arrange them vertically */
+}
+
+.featured__label{
+  font-size: var(--size-2xl);
+}
+
+.featured__info{
+  font-size: var(--size-xl);
+}
+
+.featured__img-container{
+  margin-top: 2rem;
+  grid-gap: 2rem;
+}
+}
+
+/* 2xl */
+/* @media(min-width:1536px){
+
+} */
